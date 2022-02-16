@@ -1,0 +1,45 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname X1&X2-tests) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;(require racketunit)
+(require "X0.rkt")
+
+;Some Racket tests for X1
+(define progTest1 "~8.1 mod [3]!")
+
+(check-expect (string->expr progTest1) (make-binop 8.1 "mod" (make-paren 3)))
+(check-expect (expr->string (string->expr progTest1)) "~8.1 mod [3]!")
+(check-expect (eval (string->expr progTest1)) 2.1)
+
+(define progTest2 "if+ progTest1 thn 0 els 1")
+(define progTestIfPosWithNeg "if+ -1 thn 0 els 1")
+
+(check-expect (string->expr progTest2) (make-if+ (make-binop 8.1 "mod" (make-paren 3)) 0 1))
+(check-expect (expr->string (string->expr progTest2)) "if+ ~8.1 mod [3]! thn 0 els 1")
+(check-expect (eval (string->expr progTest2)) 0)
+(check-expect (eval (string->expr progTestIfPosWithNeg)) 1)
+
+
+#| Some java tests for X1
+@Test
+void testModulo() {
+   String progTest = "~8.1 mod [3]!";
+   assertEquals( Expr.parse(progTest), new BinOp(8.1, "mod", new Paren(3));
+   assertEquals( Expr.parse(progTest).toString(), "~8.1 mod [3]!");
+   assertEquals( Expr.parse(progTest).eval(), 2.1);
+
+   //Now, make a test for the ifPos expression
+   //You only need one example for this submission, but
+   //in your real program you'll probably want at least two or three   
+}
+
+void testIfPos(){
+   String progTestExpr = "~8.1 mod [3]!";
+   String progTestIfPos = "if+ progTestExpr thn 0 els 1";
+   String progTestIfPosWithNeg = "if+ -1 thn 0 els 1";
+   assertEquals( Expr.parse(progTestIfPos, new IfPos( new BinOp(...), 0, 1);
+   assertEquals( Expr.parse(progTestIfPos).toString(), "if+ ~8.1 mod [3]! thn 0 els 1");
+   assertEquals( Expr.parse(progTestIfPos).eval(), 0);
+   assertEquals( Expr.parse(progTestIfPosWithNeg()).eval(), 1);
+}
+|#

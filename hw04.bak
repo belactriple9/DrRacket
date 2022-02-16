@@ -1,0 +1,17 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname hw04) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;A team is:
+;- a name (non-empty string), AND
+;- an offense rating (real number), AND
+;- a defense rating (real number).
+
+; A team is:
+; (make-team [non-empty string] [real] [real])
+(define-struct team (name offense defense))
+
+; team>?: team team -> boolean
+(define (team>? a-t1 a-t2)
+  (and (team-offense a-t1)
+        
+  )

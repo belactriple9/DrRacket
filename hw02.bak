@@ -1,0 +1,28 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname hw02) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;Caleb Rippey
+;Homework 2
+;https://www.radford.edu/~itec380//2020fall-ibarland/Homeworks/func-and-image-intro/
+
+;notes
+;area of circle = pi*radius^2
+
+;constants
+(define CRUST-WIDTH 2) ;does this mean the pizza can be 2" or greater only? how do you restrict input
+
+;functions
+;topping-area solves the area of a pizza covered in toppings given a diameter
+(define (topping-area diam)
+  0)
+;crust-area solves the area of crust given a diameter
+(define (crust-area diam)
+  0)
+;has-suffix? takes in a file name and a suffix and checks if the file name has the given suffix
+(define (has-suffix? fle_nm sffx)
+  "")
+
+;Unit tests
+;topping-area
+(check-expect (topping-area 0) 0)
+(check-expect (topping-area 2) 0)

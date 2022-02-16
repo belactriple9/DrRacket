@@ -1,0 +1,55 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname hw04b) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+;asteroids game By Caleb Rippey
+;ITEC 380 
+
+; boolean : collisions --what do i use this for?
+
+;mention units of fields *****
+;
+
+; a ship is:
+; integer : direction facing (out of 360)
+; integer : x location, the x position on the board relative to top left corner
+; integer : y location, the y position on the board relative to top left corner
+; integer : x speed, can be positive and negative
+; integer : y speed, can be positive and negative
+; boolean : can fire --cap in number of bullets
+(define-struct ship (dir x-loc y-loc x-speed y-speed can-fire))
+
+;Examples
+(make-ship 
+
+
+; an asteroid is:
+; integer : x location
+; integer : y location
+; integer : x speed
+; integer : y speed
+; integer : size
+(define-struct asteroid (x-loc y-loc x-speed y-speed size))
+
+; a bullet is:
+; integer : lifetime --die after maybe 100 pixels?
+; integer : x location
+; integer : y location
+; integer : x speed
+; integer : y speed
+(define-struct bullet (x-loc y-loc x-speed y-speed lifetime))
+
+
+
+
+
+
+;;per function do these:
+
+;;1: make appropriate data definition.
+;;2. Give some xamples of that type of data
+;;3. Template
+;-----------------------------------------
+; 4: write tests
+; 5: signatures, purpose statement, and stub
+; 7: complete the body
+; 8: watch the tests pass
